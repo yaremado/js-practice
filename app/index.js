@@ -1,8 +1,15 @@
 // app/index.js
-const calc = require('./calc')
+const fs = require('fs')
 
-const numbersToAdd = [3, 4, 10, 2]
+console.log('Start reading file ...')
 
-const result = calc.sum(numbersToAdd)
-console.log('The result is: ${result}')
-console.log(result)
+fs.readFile('file.md', 'utf-8', function(err, content){
+	if (err) {
+		console.log('shit happens')
+		return console.log(err)
+	}
+	
+	console.log(content)
+}) 
+
+console.log('end of the file')
